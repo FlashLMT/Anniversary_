@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="my" data-lang="my"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="page_title">ကျွန်ုပ်တို့၏ အမှတ်တရနေ့</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* index.html specific styles / Overrides */
+        
+        /* Language Switcher CSS */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid #8B0000; 
+            color: #8B0000;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.85em;
+            transition: background 0.3s, color 0.3s;
+        }
+        .lang-btn.active {
+            background: #8B0000;
+            color: white; 
+            font-weight: bold;
+        }
+        
+        /* Question Group Styling */
+        .card {
+            max-width: 450px; 
+            text-align: left; 
+        }
+        .card-title, .card-text, #message {
+            text-align: center; 
+        }
+        .question-group {
+            margin-bottom: 25px;
+            padding: 10px;
+            border-left: 3px solid #8B0000; 
+            background-color: #fff8f8;
+            border-radius: 5px;
+        }
+        .question-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 1em;
+        }
+        .question-group select, .question-group input[type="text"] { /* input[type="date"] ကို type="text" ဖြင့် ပြောင်းလဲသည် */
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        
+        /* Date Picker Specific Style */
+        #datePicker {
+            width: 100%; 
+            padding: 10px; 
+            font-size: 1em;
+            margin-bottom: 0; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        /* ------------------------------------------------ */
+        /* ✨ စစ်ဆေးမည် ခလုတ်အတွက် FADE IN / FADE OUT Animation (Pulse) ✨ */
+        /* ------------------------------------------------ */
+        #checkButton {
+            /* Animation တစ်ခုတည်းကိုသာ ထားရှိခြင်း */
+            animation: pulse-fade 1.5s infinite alternate; 
+        }
+
+        /* Animation Keyframes (Check Button) */
+        @keyframes pulse-fade {
+            0% { opacity: 0.6; transform: scale(1); } 
+            100% { opacity: 1; transform: scale(1.03); }
+        }
+        /* ------------------------------------------------ */
+        
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand" data-translate="nav_brand">မောင်နဲ့မရဲ့ အချစ်မှတ်တိုင် 💖</a>
+            
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang-code="my">MY</button>
+                <button class="lang-btn" data-lang-code="en">EN</button>
+            </div>
+            
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="card">
+            <div class="card-content">
+                
+                <h1 class="card-title" data-translate="card_title">🔐 အချစ်စမ်းသပ်မှု 🔑</h1>
+                
+                <p class="card-text" data-translate="card_text">
+                    အချစ်ဆုံး မ ရေ၊ မ ရဲ့အဖြေမှန်တွေကို ရွေးချယ်ပြီး အချစ်ဇာတ်လမ်းရဲ့ လျှို့ဝှက်ချက်ကို ဖော်ထုတ်လိုက်ပါ။
+                </p>
+                
+                <div class="question-group">
+                    <label for="datePicker" data-translate="q_date_label">1. မောင်တို့ အချစ်ဇာတ်လမ်း စတင်ခဲ့တဲ့ နေ့စွဲကို ရွေးချယ်ပါ။ (တိကျစွာ - DD/MM/YYYY)</label>
+                    <input type="text" id="datePicker" placeholder="ဥပမာ: 01/02/2021" required> 
+                </div>
+
+                <div class="question-group">
+                    <label for="q1" data-translate="q1_label">2. မောင် အကြိုက်ဆုံးအရောင်က ဘာလဲ?</label>
+                    <select id="q1">
+                        <option value="" data-translate="select_default">ရွေးချယ်ပါ...</option>
+                        <option value="red" data-translate="q1_opt_red">❤️ အနီရောင်</option>
+                        <option value="blue" data-translate="q1_opt_blue">💙 အပြာရောင်</option>
+                        <option value="black" data-translate="q1_opt_black">🖤 အနက်ရောင်</option>
+                    </select>
+                </div>
+
+                <div class="question-group">
+                    <label for="q2" data-translate="q2_label">3. မောင် မကို ပထမဆုံး လျှို့ဝှက်ချက် ဖွင့်ဟခဲ့တဲ့ နေရာက ဘာလဲ?</label>
+                    <select id="q2">
+                        <option value="" data-translate="select_default">ရွေးချယ်ပါ...</option>
+                        <option value="cafe" data-translate="q2_opt_cafe">☕️ ကော်ဖီဆိုင်</option>
+                        <option value="park" data-translate="q2_opt_park">🌳 သစ်ပင်ကြီးအောက်</option>
+                        <option value="lib" data-translate="q2_opt_lib">🏠 စာကြည့်တိုက်</option> 
+                    </select>
+                </div>
+
+                 <div class="question-group">
+                    <label for="q3" data-translate="q3_label">4. အမှတ်တရ အကြီးဆုံး ဖြစ်ခဲ့တဲ့ လ (Month) က ဘာလဲ?</label>
+                    <select id="q3">
+                        <option value="" data-translate="select_default">ရွေးချယ်ပါ...</option>
+                        <option value="jul" data-translate="q3_opt_jul">ဇူလိုင်လ</option>
+                        <option value="may" data-translate="q3_opt_may">မေလ</option>
+                        <option value="dec" data-translate="q3_opt_dec">ဒီဇင်ဘာလ</option>
+                    </select>
+                </div>
+                
+                <button id="checkButton" class="card-button" style="margin-top: 10px;" data-translate="check_btn">စစ်ဆေးမည် ✨</button>
+                
+                <p id="message"></p> 
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

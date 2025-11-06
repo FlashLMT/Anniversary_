@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>အချစ်ခရီးစဥ်</title>
+    <style>
+        /* Global Styles for Layout */
+        body {
+            /* Text ကို Maroon နှင့် လိုက်ဖက်စေရန် */
+            font-family: 'Playfair Display', serif; 
+            margin: 0;
+            overflow: hidden; 
+        }
+
+        /* --- Splash Screen --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            /* ⚪ ပြောင်းလဲထားသော Background: အဖြူရောင် ⚪ */
+            background-color: #FFFFFF; 
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            opacity: 1;
+        }
+
+        /* --- Welcome Text Style --- */
+        #welcome-text {
+            font-size: 2.2rem; 
+            font-weight: 700;
+            letter-spacing: 1px; 
+            text-align: center; 
+            max-width: 80%; 
+            padding: 0 20px;
+            
+            /* 🩸 စာသားအရောင်: Index Page ၏ ကြက်သွေးရောင် (Maroon) 🩸 */
+            color: #8B0000; 
+                         
+            opacity: 0; 
+            
+            /* Fade In/Out Animation */
+            animation: fade-in-out 5s forwards; 
+        }
+        
+        /* ------------------------------------------------ */
+        /* Animation Keyframes */
+        /* ------------------------------------------------ */
+        
+        /* 1. Fade In / Fade Out (5 စက္ကန့်ကြာချိန်) - ရိုးရှင်းသော ပေါ်/ပျောက်ခြင်း */
+        @keyframes fade-in-out {
+            0% { opacity: 0; transform: scale(0.98); } 
+            10% { opacity: 1; transform: scale(1); }
+            90% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.98); }
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="splash-screen">
+        <p id="welcome-text">မောင်နဲ့မရဲ့ ကံကြမ္မာအစ... ရင်ခုန်သံများ စတင်သော နေ့ရက်များဆီသို့ လျှို့ဝှက်တံခါးကို ဖွင့်လှစ်လိုက်ပါ 🔑</p>
+    </div>
+
+    <script>
+        // 5 စက္ကန့် (5000ms) ကြာပြီးနောက် index.html သို့ ပြောင်းလဲခြင်း
+        const duration = 5000; 
+
+        setTimeout(() => {
+            // index.html ကို redirect လုပ်ခြင်း
+            window.location.href = 'index.html';
+        }, duration);
+
+    </script>
+</body>
+</html>
